@@ -1,0 +1,22 @@
+name: Automated Docker Image Build and Push
+on: [push]
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      
+      - name: Build (and tag) Docker image
+        run: docker build -t calculatorapp Challenge\ 1/dockerfile .
+
+      - name: Log in to Docker Hub
+        run: docker login -u ${{ secrets.USERDOCKER }} -p ${{ secrets.PAT_DOCKER }}
+
+      - name: Push Docker image to Docker Hub
+        run: docker push ${{ secrets.USERDOCKER }}/calculatorapp:latest
+
+
