@@ -1,1 +1,11 @@
 .env
+Challenges/Challenge 2/.terraform/
+Challenges/Challenge 2/terraform.tfstate
+Challenges/Challenge 2/terraform.tfstate.backup
+Challenges/Challenge 2/.terraform
+
+# Local .terraform directories
+**/.terraform/*
+# .tfstate files
+*.tfstate
+*.tfstate.*
